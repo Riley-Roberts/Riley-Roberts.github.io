@@ -12,7 +12,7 @@
       font-family: 'Georgia', serif;
       background-color: #bccbde;
       color: white;
-      overflow: auto; /* Prevent scroll */
+      overflow-y: auto; /* Changed from hidden to allow scrolling */
     }
 
     /* Navigation */
@@ -20,12 +20,14 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px;
       background-color: #e05915;
-      padding: 20px;
+      padding: 15px 10px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .nav-buttons button {
@@ -37,10 +39,6 @@
       font-size: 0.9em; /* Slightly smaller font for mobile */
       cursor: pointer;
       transition: background-color 0.3s ease;
-    }
-
-    .nav-buttons button:hover {
-      background-color: #fbaf08;
     }
 
     /* Mobile navigation menu */
@@ -69,17 +67,17 @@
       display: block;
     }
     
-    /* Home Page Layout - REDESIGNED */
+    /* Home Page Layout */
     .home-container {
       max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 15px;
+      margin: 20px auto; /* Reduced margin for mobile */
+      padding: 0 15px; /* Reduced padding for mobile */
     }
     
     .home-hero {
       background-color: #431c5d;
-      border-radius: 15px;
-      padding: 25px;
+      border-radius: 15px; /* Smaller radius for mobile */
+      padding: 25px; /* Reduced padding for mobile */
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
       margin-bottom: 30px;
       display: flex;
@@ -90,7 +88,7 @@
     .profile-section {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 20px; /* Reduced gap for mobile */
       justify-content: center;
       align-items: center;
       margin-bottom: 20px;
@@ -99,52 +97,52 @@
     
     .profile-image {
       flex: 1;
-      min-width: 200px;
-      max-width: 300px;
+      min-width: 200px; /* Smaller min-width for mobile */
+      max-width: 300px; /* Smaller max-width for mobile */
     }
     
     .profile-image img {
       width: 100%;
-      border-radius: 15px;
+      border-radius: 15px; /* Smaller radius for mobile */
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     }
     
     .profile-info {
       flex: 2;
-      min-width: 250px;
+      min-width: 250px; /* Smaller min-width for mobile */
       color: #c2dde6;
       text-align: center;
     }
     
     .profile-info h1 {
-      font-size: 1.5em;
+      font-size: 2.2em; /* Smaller font for mobile */
       margin-bottom: 10px;
       color: #fbaf08;
     }
     
     .profile-info h2 {
-      font-size: 1.1em;
+      font-size: 1.5em; /* Smaller font for mobile */
       margin: 5px 0;
     }
     
     .profile-info p {
-      font-size: 1.1em;
+      font-size: 1.1em; /* Smaller font for mobile */
       margin: 5px 0;
     }
 
     .profile-highlights {
       background-color: #bccbde;
-      border-radius: 15px;
-      padding: 20px;
+      border-radius: 15px; /* Smaller radius for mobile */
+      padding: 20px; /* Reduced padding for mobile */
       margin-top: 20px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-      width: 90%;
+      width: 90%; /* Wider for mobile */
       margin-left: auto;
       margin-right: auto;
     }
     
     .profile-highlights h3 {
-      font-size: 1.3em;
+      font-size: 1.3em; /* Smaller font for mobile */
       margin-bottom: 15px;
       color: #431c5d;
       text-align: center;
@@ -153,130 +151,125 @@
     .highlights-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 10px; /* Reduced gap for mobile */
       justify-content: center;
     }
     
     .highlight-item {
       background-color: #e05915;
       color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.9em;
+      padding: 8px 15px; /* Reduced padding for mobile */
+      border-radius: 20px; /* Smaller radius for mobile */
+      font-size: 0.9em; /* Smaller font for mobile */
       text-align: center;
     }
 
     .contact-section {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 10px; /* Reduced gap for mobile */
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 15px;
     }
     
     .contact-button {
       background-color: #fbaf08;
       color: #431c5d;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 0.9em;
+      padding: 10px 20px; /* Reduced padding for mobile */
+      border-radius: 20px; /* Smaller radius for mobile */
+      font-size: 0.9em; /* Smaller font for mobile */
       text-align: center;
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
     
-    .contact-button:hover {
-      background-color: #e05915;
-      color: white;
-    }
-    
     .bio-section {
       background-color: #bccbde;
-      border-radius: 15px;
-      padding: 20px;
-      margin-top: 30px;
+      border-radius: 15px; /* Smaller radius for mobile */
+      padding: 20px; /* Reduced padding for mobile */
+      margin-top: 20px;
       color: #431c5d;
       text-align: center;
-      font-size: 1.1em;
-      line-height: 1.6;
+      font-size: 1.1em; /* Smaller font for mobile */
+      line-height: 1.5;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    /* REDESIGNED ABOUT ME PAGE */
+    /* About Me Page */
     .about-container {
       max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 15px;
+      margin: 20px auto; /* Reduced margin for mobile */
+      padding: 0 15px; /* Reduced padding for mobile */
     }
     
     .about-header {
       text-align: center;
-      margin-bottom: 30px;
-    }
-    
-    .about-header h2 {
-      font-size: 2em;
-      font-weight: bold;
-      color: #431c5d;
       margin-bottom: 20px;
     }
     
-    .about-intro {
-      font-size: 1.3em;
+    .about-header h2 {
+      font-size: 2em; /* Smaller font for mobile */
+      font-weight: bold;
       color: #431c5d;
-      max-width: 1000px;
-      margin: 0 auto 40px;
+      margin-bottom: 15px;
+    }
+    
+    .about-intro {
+      font-size: 1.3em; /* Smaller font for mobile */
+      color: #431c5d;
+      max-width: 90%;
+      margin: 0 auto 30px;
       text-align: center;
-      line-height: 1.5;
+      line-height: 1.4;
     }
     
     .about-card {
       background-color: #431c5d;
-      border-radius: 15px;
-      padding: 25px;
+      border-radius: 15px; /* Smaller radius for mobile */
+      padding: 25px; /* Reduced padding for mobile */
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       color: #c2dde6;
     }
     
     .about-content {
       display: flex;
       flex-wrap: wrap;
-      gap: 25px;
+      gap: 25px; /* Reduced gap for mobile */
       align-items: center;
     }
     
     .about-image {
       flex: 1;
-      min-width: 250px;
-      max-width: 450px;
+      min-width: 250px; /* Smaller min-width for mobile */
+      max-width: 450px; /* Smaller max-width for mobile */
     }
     
     .about-image img {
       width: 100%;
-      border-radius: 15px;
+      border-radius: 15px; /* Smaller radius for mobile */
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     }
     
     .about-text {
       flex: 1;
-      min-width: 250px;
-      font-size: 1.1em;
-      line-height: 1.6;
+      min-width: 250px; /* Smaller min-width for mobile */
+      font-size: 1.1em; /* Smaller font for mobile */
+      line-height: 1.5;
     }
     
     .achievement-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Smaller min-width for mobile */
+      gap: 20px; /* Reduced gap for mobile */
+      margin-top: 30px;
     }
     
     .achievement-card {
       background-color: #bccbde;
-      border-radius: 15px;
-      padding: 20px;
+      border-radius: 15px; /* Smaller radius for mobile */
+      padding: 20px; /* Reduced padding for mobile */
       text-align: center;
       color: #431c5d;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
@@ -286,46 +279,46 @@
     }
     
     .achievement-card h3 {
-      font-size: 1.2em;
-      margin-bottom: 15px;
+      font-size: 1.2em; /* Smaller font for mobile */
+      margin-bottom: 10px;
       color: #e05915;
     }
     
     .achievement-card p {
-      font-size: 1em;
-      line-height: 1.5;
+      font-size: 1em; /* Smaller font for mobile */
+      line-height: 1.4;
     }
     
     .achievement-icon {
-      font-size: 2em;
-      margin-bottom: 15px;
+      font-size: 2em; /* Smaller font for mobile */
+      margin-bottom: 10px;
       color: #fbaf08;
     }
     
     .quote-card {
       background-color: #fbaf08;
       color: #431c5d;
-      border-radius: 15px;
-      padding: 25px;
+      border-radius: 15px; /* Smaller radius for mobile */
+      padding: 25px; /* Reduced padding for mobile */
       text-align: center;
-      margin: 40px 0;
+      margin: 30px 0;
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     }
     
     .quote-card p {
-      font-size: 1.2em;
+      font-size: 1.2em; /* Smaller font for mobile */
       font-style: italic;
-      line-height: 1.6;
+      line-height: 1.5;
       margin-bottom: 15px;
     }
     
     .quote-card .author {
-      font-size: 1em;
+      font-size: 1em; /* Smaller font for mobile */
       font-weight: bold;
     }
     
     .values-section {
-      margin-top: 40px;
+      margin-top: 30px;
     }
     
     .values-title {
@@ -480,7 +473,7 @@
   <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
 
   <!-- Navigation -->
-  <div class="nav-buttons">
+  <div class="nav-buttons" id="navButtons">
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('about')">About Me</button>
     <button onclick="showPage('experience')">Experience</button>

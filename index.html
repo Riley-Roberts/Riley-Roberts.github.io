@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Riley Roberts - Portfolio</title>
+  <title>Riley Roberts - Portfolio v2</title>
   <style>
     /* Base Styles */
     body {
@@ -51,6 +51,10 @@
       cursor: pointer;
       padding: 10px 15px;
       border-radius: 5px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
     }
 
     /* Section Layout */
@@ -368,30 +372,110 @@
       overflow-x: hidden;
     }
     
+    /* Skills and Leadership Section Improvements */
+    .skills-container, .leadership-container {
+      max-width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    
+    .skills-showcase, .leadership-showcase {
+      padding: 20px;
+      border-radius: 15px;
+    }
+    
+    .header-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    
+    .header-images img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 15px;
+    }
+    
+    .skills-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    
+    .skills-column {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+      border-radius: 15px;
+    }
+    
+    .leadership-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .leadership-image {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+    }
+    
+    .leadership-image img {
+      width: 100%;
+      border-radius: 15px;
+    }
+    
+    .leadership-text {
+      flex: 2;
+      min-width: 200px;
+    }
+    
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .tag {
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      text-align: center;
+    }
+    
     /* Responsive Layout - Enhanced Breakpoints */
     /* Small devices (phones) */
     @media (max-width: 576px) {
       .nav-buttons {
-        display: none; /* Hide regular buttons in mobile view */
+        display: none;
         flex-direction: column;
         padding: 10px;
-        position: absolute;
+        position: fixed;
         background: #e05915;
-        top: 50px;
+        top: 60px;
         width: 100%;
         left: 0;
+        z-index: 999;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
       }
       
       .nav-buttons.show {
-        display: flex;
+        display: flex !important;
       }
       
       .mobile-menu-btn {
         display: block;
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 1001;
       }
       
       .profile-info h1 {
@@ -423,6 +507,34 @@
         font-size: 0.85em;
         padding: 8px 15px;
       }
+      
+      /* Additional mobile fixes for skills/leadership */
+      .header-images img {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      .skills-showcase, .leadership-showcase {
+        padding: 15px;
+      }
+      
+      .skills-column {
+        padding: 15px;
+        min-width: 100%;
+      }
+      
+      .leadership-card {
+        flex-direction: column;
+      }
+      
+      .leadership-image, .leadership-text {
+        width: 100%;
+      }
+      
+      .tag {
+        font-size: 0.8em;
+        padding: 6px 12px;
+      }
     }
     
     /* Medium devices (tablets) */
@@ -442,6 +554,14 @@
       
       .achievement-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      
+      .header-images {
+        flex-direction: row;
+      }
+      
+      .header-images img {
+        max-width: 48%;
       }
     }
     
@@ -464,13 +584,17 @@
       .profile-info h2 {
         font-size: 1.8em;
       }
+      
+      .mobile-menu-btn {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Mobile Menu Button (new) -->
-  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+  <!-- Mobile Menu Button -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
 
   <!-- Navigation -->
   <div class="nav-buttons" id="navButtons">
@@ -863,134 +987,141 @@
   </div>
 
   <!-- SKILLS SECTION -->
-  <div id="skills" class="section" style="background-color: #bccbde; padding: 10px 10px;">
-    <h2 style="text-align: center; font-size: 2.5em; font-weight: bold; color: #431c5d;">Technical and Soft Skills</h2>
-    
-    <div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-      <!-- Skills showcase design -->
-      <div class="fade-in" style="background-color: #431c5d; border-radius: 25px; padding: 40px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); margin-bottom: 40px;">
-        <!-- Header image banner -->
-        <div style="display: flex; gap: 20px; margin-bottom: 40px; justify-content: center;">
-          <img src="riley_solopitch.jpeg" alt="Riley in Honors Program" style="width: 48%; max-width: 400px; height: auto; border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);">
-          <img src="riley_nyc_conf.jpeg" alt="Riley at NYC Conference" style="width: 48%; max-width: 400px; height: auto; border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);">
+  <div id="skills" class="section">
+    <div class="about-container">
+      <div class="about-header">
+        <h2>Technical and Soft Skills</h2>
+      </div>
+      
+      <p class="about-intro fade-in">
+        My diverse skill set comes from hands-on experience across internships, research projects, and leadership positions.
+      </p>
+      
+      <!-- Skills showcase - improved for mobile -->
+      <div class="about-card fade-in">
+        <!-- Header images - responsive layout -->
+        <div class="header-images">
+          <img src="riley_solopitch.jpeg" alt="Riley in Honors Program">
+          <img src="riley_nyc_conf.jpeg" alt="Riley at NYC Conference">
         </div>
         
-        <!-- Skills content -->
-        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+        <!-- Skills content - improved for mobile -->
+        <div class="skills-columns">
           <!-- Technical Skills Column -->
-          <div style="flex: 1; min-width: 300px; background-color: #bccbde; border-radius: 20px; padding: 25px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);">
-            <h3 style="font-size: 1.5em; margin-bottom: 20px; color: #431c5d; text-align: center;"><strong>Technical Skills</strong></h3>
-            <ul style="list-style-type: none; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; padding: 0;">
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">C++</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">Python</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">SQL</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">HTML</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">Shell/CLI</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">Swift</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">Algorithms</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">OpenAI</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">Teams/Slack</li>
-              <li style="background-color: #e05915; color: white; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center;">Excel/PowerPoint</li>
-            </ul>
+          <div class="skills-column" style="background-color: #bccbde;">
+            <h3 style="color: #431c5d; text-align: center;"><strong>Technical Skills</strong></h3>
+            <div class="tag-list">
+              <span class="tag" style="background-color: #e05915; color: white;">C++</span>
+              <span class="tag" style="background-color: #e05915; color: white;">Python</span>
+              <span class="tag" style="background-color: #e05915; color: white;">SQL</span>
+              <span class="tag" style="background-color: #e05915; color: white;">HTML</span>
+              <span class="tag" style="background-color: #e05915; color: white;">Shell/CLI</span>
+              <span class="tag" style="background-color: #e05915; color: white;">Swift</span>
+              <span class="tag" style="background-color: #e05915; color: white;">Algorithms</span>
+              <span class="tag" style="background-color: #e05915; color: white;">OpenAI</span>
+              <span class="tag" style="background-color: #e05915; color: white;">Teams/Slack</span>
+              <span class="tag" style="background-color: #e05915; color: white;">Excel/PowerPoint</span>
+            </div>
           </div>
           
           <!-- Soft Skills Column -->
-          <div style="flex: 1; min-width: 300px; background-color: #bccbde; border-radius: 20px; padding: 25px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);">
-            <h3 style="font-size: 1.5em; margin-bottom: 20px; color: #431c5d; text-align: center;"><strong>Soft Skills</strong></h3>
-            <ul style="list-style-type: none; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; padding: 0;">
-              <li style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Leadership</li>
-              <li style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Multi-tasking</li>
-              <li style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Organization</li>
-              <li style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Problem-solving</li>
-              <li style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Presentation</li>
-              <li style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Project Management</li>
-            </ul>
+          <div class="skills-column" style="background-color: #bccbde;">
+            <h3 style="color: #431c5d; text-align: center;"><strong>Soft Skills</strong></h3>
+            <div class="tag-list">
+              <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Leadership</span>
+              <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Multi-tasking</span>
+              <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Organization</span>
+              <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Problem-solving</span>
+              <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Presentation</span>
+              <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Project Management</span>
+            </div>
           </div>
         </div>
         
         <!-- Skills statement -->
-        <div style="margin-top: 40px; text-align: center; color: #c2dde6; font-size: 1.2em; line-height: 1.6; padding: 0 20px;">
-          <p>My diverse skill set comes from hands-on experience across internships, research projects, and leadership positions. I continuously develop both technical and soft skills to become a well-rounded professional ready for challenges in any environment.</p>
+        <div class="bio-section" style="margin-top: 20px;">
+          <p>I continuously develop both technical and soft skills to become a well-rounded professional ready for challenges in any environment.</p>
         </div>
       </div>
+      
       <!-- Quote Card -->
       <div class="quote-card fade-in">
-        <p>“The only people who achieve much are those who want knowledge so badly that they seek it while the conditions are still unfavorable. Favorable conditions never come.”</p>
+        <p>"The only people who achieve much are those who want knowledge so badly that they seek it while the conditions are still unfavorable. Favorable conditions never come."</p>
         <div class="author">- C.S. Lewis</div>
       </div>
     </div>
   </div>
 
   <!-- LEADERSHIP SECTION -->
-  <div id="leadership" class="section" style="background-color: #bccbde; padding: 10px 10px;">
-    <h2 style="text-align: center; font-size: 2.5em; font-weight: bold; color: #431c5d;">Leadership Experiences</h2>
-    
-    <div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-      <!-- Leadership showcase design -->
-      <div class="fade-in" style="background-color: #431c5d; border-radius: 25px; padding: 40px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); margin-bottom: 40px;">
-        
-        <!-- Leadership intro statement -->
-        <div style="text-align: center; color: #c2dde6; font-size: 1.3em; line-height: 1.6; padding: 0 20px; margin-bottom: 40px;">
-          <p>Leadership is central to my professional identity. Through various roles, I've developed the ability to guide teams, organize initiatives, and create meaningful impact in my community.</p>
-        </div>
-        
-        <!-- Honors Program Section -->
-        <div style="background-color: #bccbde; border-radius: 20px; padding: 30px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
-          <div style="flex: 1; min-width: 280px;">
-            <img src="riley_stjude.jpeg" alt="Honors Program at St. Jude" style="width: 100%; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+  <div id="leadership" class="section">
+    <div class="about-container">
+      <div class="about-header">
+        <h2>Leadership Experiences</h2>
+      </div>
+      
+      <p class="about-intro fade-in">
+        Leadership is central to my professional identity. Through various roles, I've developed the ability to guide teams, organize initiatives, and create meaningful impact in my community.
+      </p>
+      
+      <!-- Honors Program Section -->
+      <div class="about-card fade-in">
+        <div class="leadership-card" style="background-color: #bccbde;">
+          <div class="leadership-image">
+            <img src="riley_stjude.jpeg" alt="Honors Program at St. Jude">
           </div>
-          <div style="flex: 2; min-width: 300px; color: #431c5d;">
-            <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #e05915;">Honors Program</h3>
-            <p style="font-size: 1.2em; line-height: 1.7;">
-              As an executive officer in the Alabama A&M Honors Program, I served as <i>Chief Operations Officer</i> from August 2024 to May 2025, overseeing fourteen board members to ensure efficient task management and successful event execution. I organized apparel distribution for over 350 members and helped coordinate a series of impactful events, including Black History Month programming.
+          <div class="leadership-text" style="color: #431c5d;">
+            <h3 style="color: #e05915; font-size: 1.5em; margin-bottom: 15px;">Honors Program</h3>
+            <p>
+              As an executive officer in the Alabama A&M Honors Program, I served as <i>Chief Operations Officer</i> from August 2024 to May 2025, overseeing fourteen board members to ensure efficient task management and successful event execution.
             </p>
-            <p style="font-size: 1.2em; line-height: 1.7; margin-top: 15px;">
-              Prior to that, I served as <i>Community Service Coordinator</i>, where I led the program to a campus-record <b>4,600+ collective service hours</b>—more than doubling the following year's total. I spearheaded initiatives such as food box distribution with Manna House, the inclusive 'Bulldog Life' program for students with disabilities, and the St. Jude Volunteer Run, where I mobilized over 100 student volunteers.
+            <p style="margin-top: 10px;">
+              Prior to that, I served as <i>Community Service Coordinator</i>, where I led the program to a campus-record <b>4,600+ collective service hours</b>—more than doubling the following year's total.
             </p>
           </div>
         </div>
-
+  
         <!-- Finance Club and NABA Section -->
-        <div style="background-color: #bccbde; border-radius: 20px; padding: 30px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; flex-direction: row-reverse;">
-          <div style="flex: 1; min-width: 280px;">
-            <img src="riley_finance.jpeg" alt="Finance Club" style="width: 100%; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+        <div class="leadership-card" style="background-color: #bccbde;">
+          <div class="leadership-image">
+            <img src="riley_finance.jpeg" alt="Finance Club">
           </div>
-          <div style="flex: 2; min-width: 300px; color: #431c5d;">
-            <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #e05915;">Finance Club and NABA</h3>
-            <p style="font-size: 1.2em; line-height: 1.7;">
-              During my third year, I was invited to serve as the first <i>Community Service Chair</i> for the Alabama A&M Finance Club, which has since merged with the National Association of Black Accountants (NABA). In this role, I launched several new initiatives—including partnering with ShowerUp to support unhoused individuals, serving meals at Manna House, and organizing a Valentine's Day card-making drive.
+          <div class="leadership-text" style="color: #431c5d;">
+            <h3 style="color: #e05915; font-size: 1.5em; margin-bottom: 15px;">Finance Club and NABA</h3>
+            <p>
+              During my third year, I was invited to serve as the first <i>Community Service Chair</i> for the Alabama A&M Finance Club, which has since merged with the National Association of Black Accountants (NABA).
             </p>
-            <p style="font-size: 1.2em; line-height: 1.7; margin-top: 15px;">
+            <p style="margin-top: 10px;">
               My work was well-received, and I've been asked to continue as Community Service Chair under NABA for the upcoming year.
             </p>
           </div>
         </div>
-
+  
         <!-- Mentorship Section -->
-        <div style="background-color: #bccbde; border-radius: 20px; padding: 30px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
-          <div style="flex: 1; min-width: 280px;">
-            <img src="riley_honorsparade.JPG" alt="Homecoming Parade" style="width: 100%; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+        <div class="leadership-card" style="background-color: #bccbde;">
+          <div class="leadership-image">
+            <img src="riley_honorsparade.JPG" alt="Homecoming Parade">
           </div>
-          <div style="flex: 2; min-width: 300px; color: #431c5d;">
-            <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #e05915;">Mentorship</h3>
-            <p style="font-size: 1.2em; line-height: 1.7;">
+          <div class="leadership-text" style="color: #431c5d;">
+            <h3 style="color: #e05915; font-size: 1.5em; margin-bottom: 15px;">Mentorship</h3>
+            <p>
               As I've progressed through my time at Alabama A&M, one of the roles I've valued most is that of a mentor. I've helped underclassmen navigate course selection, choose the right professors, and shared strategies for academic and personal success on campus.
             </p>
-            <p style="font-size: 1.2em; line-height: 1.7; margin-top: 15px;">
-              From resume reviews to interview preparation, I've passed along knowledge to help my peers thrive. I'm committed to continuing this work—sowing seeds of guidance and support to help fellow scholars grow and succeed.
+            <p style="margin-top: 10px;">
+              From resume reviews to interview preparation, I've passed along knowledge to help my peers thrive.
             </p>
           </div>
         </div>
         
         <!-- Leadership key skills -->
-        <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-          <span style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Team Management</span>
-          <span style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Initiative</span>
-          <span style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Community Engagement</span>
-          <span style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Event Planning</span>
-          <span style="background-color: #fbaf08; color: #431c5d; padding: 12px 20px; border-radius: 30px; font-size: 1.1em; text-align: center; font-weight: bold;">Empowerment</span>
+        <div class="tag-list" style="margin-top: 20px;">
+          <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Team Management</span>
+          <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Initiative</span>
+          <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Community Engagement</span>
+          <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Event Planning</span>
+          <span class="tag" style="background-color: #fbaf08; color: #431c5d; font-weight: bold;">Empowerment</span>
         </div>
       </div>
+      
       <!-- Quote Card -->
       <div class="quote-card fade-in">
         <p>"A leader is best when people barely know he exists. When his work is done, his aim fulfilled, they will say: we did it ourselves."</p>
@@ -1006,22 +1137,27 @@
       pages.forEach(page => page.classList.remove('active'));
       document.getElementById(id).classList.add('active');
       
-      // Close mobile menu after selection on small screens
+      // Close mobile menu after selection
+      const navButtons = document.getElementById('navButtons');
       if (window.innerWidth <= 576) {
-        document.getElementById('navButtons').classList.remove('show');
+        navButtons.classList.remove('show');
       }
       
       // Scroll to top when changing pages
       window.scrollTo(0, 0);
     }
     
-    // Function to toggle mobile menu
-    function toggleMobileMenu() {
-      document.getElementById('navButtons').classList.toggle('show');
-    }
-    
-    // Animation for fade-in elements
-    document.addEventListener("DOMContentLoaded", () => {
+    // Document ready function
+    document.addEventListener("DOMContentLoaded", function() {
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navButtons = document.getElementById('navButtons');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        navButtons.classList.toggle('show');
+      });
+      
+      // Animation for fade-in elements
       const elements = document.querySelectorAll('.fade-in');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1030,23 +1166,21 @@
           }
         });
       }, { threshold: 0.1 });
-
+  
       elements.forEach(el => observer.observe(el));
-      
-      // Check screen size and adjust navigation visibility
-      function checkScreenSize() {
-        const navButtons = document.getElementById('navButtons');
+  
+      // Initial check for screen size
+      function handleScreenSize() {
         if (window.innerWidth > 576) {
-          navButtons.classList.remove('show');
           navButtons.style.display = 'flex';
         } else {
-          navButtons.style.display = 'none';
+          navButtons.style.display = navButtons.classList.contains('show') ? 'flex' : 'none';
         }
       }
       
-      // Run on load and resize
-      checkScreenSize();
-      window.addEventListener('resize', checkScreenSize);
+      // Run on load and on resize
+      handleScreenSize();
+      window.addEventListener('resize', handleScreenSize);
     });
   </script>
 
